@@ -27,6 +27,7 @@ export default defineConfig({
       ],
     },
   },
+  enableSpa: true,
   route: {
     exclude: ["compoents/**/*"],
   },
