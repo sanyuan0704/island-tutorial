@@ -12,7 +12,6 @@ export default defineConfig({
     ],
   },
   title: "Island.js 教程",
-  enableSpa: true,
   themeConfig: {
     sidebar: {
       "/guide/": [
@@ -21,7 +20,7 @@ export default defineConfig({
           items: [
             {
               text: "初始化项目",
-              link: "/init",
+              link: "/",
             },
           ],
         },

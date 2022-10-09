@@ -1,80 +1,72 @@
-# Spotlight
+# 初始化项目
 
-This is how to use the `<CH.Spotlight>` component. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia! Quidem, quisquam.
+现在让我们从零创建一个新的项目。
 
-<CH.Spotlight>
+<div my="20"></div>
 
-```js app.js
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null && 0;
-  dolor = sit - amet(dolor);
-  return sit ? consectetur(ipsum) : [];
+<CH.Scrollycoding>
+
+## Step 1
+
+首先，你可以通过以下命令创建一个新目录：
+
+```bash terminal
+$ mkdir island-app && cd island-app
+```
+
+---
+
+## Step 2
+
+执行 `npm init -y` 来初始化一个项目。你可以使用 npm、yarn 或 pnpm 安装 Island.js:
+
+```bash terminal
+# npm
+npm install islandjs
+# yarn
+yarn add islandjs
+# pnpm
+pnpm add islandjs
+```
+
+---
+
+## Step 3
+
+然后通过如下命令创建文件:
+
+```js terminal
+mkdir docs && echo '# Hello World' > docs/index.md
+```
+
+---
+
+## Step 4
+
+在`package.json`中加上如下的脚本:
+
+```json package.json
+{
+  "scripts": {
+    "dev": "island dev docs",
+    "build": "island build docs",
+    "preview": "island start docs"
+  }
 }
 ```
 
 ---
 
-Change focus
+## Step 5
 
-```js app.js focus=2:4
+启动本地开发服务，这样 Island.js 将在 http://localhost:5173 启动 Dev Server。
 
+```js terminal
+yarn dev
 ```
 
 ---
 
-Or change the code
+</CH.Scrollycoding>
 
-```js app.js focus=6:10
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null && 0;
-  dolor = sit - amet(dolor);
-  return sit ? consectetur(ipsum) : [];
-}
-
-function adipiscing(...elit) {
-  console.log(elit);
-  return elit.map((ipsum) => ipsum.sit);
-}
-```
-
----
-
-Or change the file
-
-<CH.Code>
-
-```js app.js focus=1:4
-function adipiscing(...elit) {
-  console.log(elit);
-  return elit.map((ipsum) => ipsum.sit);
-}
-```
-
----
-
-```css styles.css
-.lorem {
-  color: #fff;
-  padding: 10px;
-  background: #000;
-}
-```
-
-</CH.Code>
-
----
-
-### By the way
-
-- you can
-- put any
-- markdown
-- here
-
-👍
-
-```js app.js
-
-```
-
-</CH.Spotlight>
+<div my="30"></div>
