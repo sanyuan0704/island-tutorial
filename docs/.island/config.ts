@@ -28,6 +28,12 @@ export default defineConfig({
         sidebar: getSidebar(),
       },
     },
+    socialLinks: [
+      {
+        icon: "github",
+        link: "https://github.com/sanyuan0704/island-tutorial",
+      },
+    ],
   },
   enableSpa: true,
   route: {
