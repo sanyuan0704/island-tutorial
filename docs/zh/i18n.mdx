@@ -1,0 +1,180 @@
+# 接入国际化
+
+国际化对于一个文档类的站点来说是十分重要的，因为它可以让你的站点更加的适应不同的语言环境和受众。接下来，我们将会介绍如何在你的 Island.js 站点中使用国际化。
+
+<CH.Spotlight>
+
+```ts config.ts
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+    },
+  },
+});
+```
+
+---
+
+**Step 1**
+
+初始化 `locales` 配置：
+
+```ts config.ts focus=4:15
+
+```
+
+---
+
+**Step 2**
+
+初始化工具函数：
+
+```ts config.ts
+import { defineConfig } from "vite";
+
+function getI18nHelper(lang: "zh" | "en") {
+  const cn = lang === "zh";
+  const prefix = cn ? "/zh" : "/en";
+  // 用于生成带语言前缀的链接
+  const getLink = (str: string) => `${prefix}${str}`;
+  // 用于生成不同语言的文本
+  const getText = (cnText: string, enText: string) => (cn ? cnText : enText);
+  return { getText, getLink };
+}
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+    },
+  },
+});
+```
+
+---
+
+**Step 3**
+
+添加导航栏配置：
+
+```ts config.ts focus=1:10
+function getNavbar(lang: "zh" | "en") {
+  const { getLink, getText } = getI18nHelper(lang);
+
+  return [
+    {
+      text: getText("主页", "Home"),
+      link: getLink("/"),
+    },
+  ];
+}
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+      // focus
+      navbar: getNavbar("en"),
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+      // focus
+      navbar: getNavbar("zh"),
+    },
+  },
+});
+```
+
+---
+
+**Step 4**
+
+添加侧边栏配置：
+
+```ts config.ts focus=1:17
+function getSidebar(lang: "zh" | "en") {
+  const { getLink, getText } = getI18nHelper(lang);
+
+  return {
+    [getLink("/guide/")]: [
+      {
+        text: getText("介绍", "Getting Started"),
+        items: [
+          {
+            text: getText("快速开始", "Getting Started"),
+            link: getLink("/guide/getting-started"),
+          },
+        ],
+      },
+    ],
+  };
+}
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+      navbar: getNavbar("en"),
+      // focus
+      sidebar: getSidebar("en"),
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+      navbar: getNavbar("zh"),
+      // focus
+      sidebar: getSidebar("zh"),
+    },
+  },
+});
+```
+
+---
+
+**Step 5**
+
+调整项目目录结构：
+
+```bash focus=2:9
+docs
+├── en
+│   ├── guide
+│   │   └── getting-started.md
+│   └── index.md
+└── zh
+    ├── guide
+    │   └── getting-started.md
+    └── index.md
+```
+
+---
+
+</CH.Spotlight>
+
+当你启动项目访问 `/zh/` 时，你会发现侧边栏和导航栏已经被自动切换成了中文，同理，访问 `/en/` 时，侧边栏和导航栏会被自动切换成英文。
+
+最后，在调整后的目录中编写对应语言的文档即可。

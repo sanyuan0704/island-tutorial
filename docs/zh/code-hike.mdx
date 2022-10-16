@@ -1,0 +1,113 @@
+# 交互式文档开发
+
+你可以通过 [Code Hike](https://codehike.org/) 开发交互式文档，这是一个基于 React 的 MDX 代码高亮及动画方案。
+
+:::tip
+注：本教程的交互式文档基于 Island.js 和 Code Hike 开发。
+:::
+
+而在 Island.js 中，你也可以非常轻易地接入 `Code Hike`，实现交互式文档。
+
+<CH.Spotlight>
+
+```bash
+# npm
+npm install @code-hike/mdx shiki
+# yarn
+yarn add @code-hike/mdx shiki
+# pnpm
+pnpm add @code-hike/mdx shiki
+```
+
+---
+
+**Step1** 
+
+安装 `Code Hike` 相关依赖。其中 `@codehike/mdx` 是 `Code Hike` 的核心包，`shiki` 是 `Code Hike` 使用的代码高亮包
+
+---
+
+**Step2** 
+
+在 `.island/config.ts` 中加入配置:
+
+```ts config.ts focus=1:5,9:17
+import { remarkCodeHike } from "@code-hike/mdx";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const theme = require("shiki/themes/nord.json");
+
+export default defineConfig({
+  markdown: {
+    remarkPlugins: [
+      [
+        remarkCodeHike, 
+        { 
+          theme, 
+          autoImport: true, 
+          showCopyButton: true 
+        }
+      ],
+    ],
+  },
+});
+```
+
+---
+
+**Step3** 
+
+添加全局样式。
+
+```css styles/index.css
+/* .island/styles/index.css */
+@import "@code-hike/mdx/dist/index.css";
+
+.ch-scrollycoding .header-anchor {
+  display: none;
+}
+
+.ch-spotlight .header-anchor {
+  display: none;
+}
+```
+
+---
+
+**Step4** 
+
+在 MDX 中直接使用 `Code Hike` 组件，从而轻易地实现交互式文档。
+
+以下是一些具体的使用示例:
+
+- [CH.Code](https://codehike.org/demo/filenames)
+- [CH.Spotlight](https://codehike.org/demo/spotlight)
+- [CH.Scrollycoding](https://codehike.org/demo/scrollycoding)
+
+
+````mdx
+<CH.Code>
+
+```js app.js
+function lorem(ipsum, dolor = 1) {
+  const sit = ipsum == null ? 0 : ipsum.sit;
+  dolor = sit - amet(dolor);
+  return sit ? consectetur(ipsum) : [];
+}
+```
+
+```css styles.css
+.lorem {
+  color: #fff;
+  padding: 10px;
+  background: #000;
+}
+```
+
+</CH.Code>
+````
+
+---
+
+</CH.Spotlight>

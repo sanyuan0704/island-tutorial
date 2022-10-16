@@ -21,12 +21,21 @@ export default defineConfig({
   },
   title: "Island.js 教程",
   themeConfig: {
-    // outline: false,
     locales: {
-      "/": {
+      "/zh/": {
+        label: "简体中文",
         nav: getNavbar("zh"),
-        sidebar: getSidebar(),
+        sidebar: getSidebar('zh'),
+        title: "Island.js 教程",
+        lang: "zh",
       },
+      "/en/": {
+        label: "English",
+        nav: getNavbar("en"),
+        sidebar: getSidebar('en'),
+        title: "Island.js Tutorial",
+        lang: "en",
+      }
     },
     socialLinks: [
       {
@@ -47,61 +56,58 @@ function getNavbar(lang: "zh" | "en") {
   return [
     {
       text: getText("指南", "Guide"),
-      link: "https://island.sanyuan0704.top/zh/guide/getting-started",
+      link: `https://island.sanyuan0704.top/${lang}/guide/getting-started`,
     },
     {
-      text: getText("交互式教程", "Tutorial"),
-      link: "/",
+      text: getText("教程", "Tutorial"),
+      link: `/${lang}/`,
     },
     {
       text: getText("API", "API"),
-      link: "https://island.sanyuan0704.top/zh/api/",
+      link: `https://island.sanyuan0704.top/${lang}/api/`,
     },
   ];
 }
 
-function getSidebar() {
+function getSidebar(lang: "zh" | "en") {
+  const { getLink, getText } = getI18nHelper(lang);
   return {
-    "/guide/": [
+    [getLink('')]: [
       {
-        text: "文档站搭建",
+        text: getText("基础教程", "Basic Tutorial"),
         items: [
           {
-            text: "初始化项目",
-            link: "/",
+            text: getText("初始化项目", "Initialize Project"),
+            link: getLink("/"),
           },
           {
-            text: "导航栏/侧边栏配置",
-            link: "/config-bar",
+            text: getText("导航栏/侧边栏配置", "Navbar/Sidebar Config"),
+            link: getLink("/config-bar"),
           },
           {
-            text: "编写 Markdown 内容",
-            link: "/markdown",
+            text: getText("编写 Markdown 内容", "Write Markdown"),
+            link: getLink("/markdown"),
           },
           {
-            text: "项目构建打包",
-            link: "/build",
+            text: getText("项目构建打包", "Build In Production"),
+            link: getLink("/build"),
           },
           {
-            text: "接入国际化",
-            link: "/i18n",
+            text: getText("接入国际化", "Integrate I18n"),
+            link: getLink("/i18n"),
           },
           {
-            text: "项目部署",
-            link: "/deploy",
+            text: getText("项目部署","Deploy"),
+            link: getLink("/deploy"),
           },
         ],
       },
       {
-        text: "高级应用",
+        text: getText("进阶教程", "Advanced Tutorial"),
         items: [
           {
-            text: "自定义主题",
-            link: "/custom-theme",
-          },
-          {
-            text: "交互式文档开发",
-            link: "/code-hike",
+            text: getText("交互式文档开发", "Interactive Docs"),
+            link: getLink("/code-hike"),
           },
         ],
       },

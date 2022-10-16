@@ -1,0 +1,118 @@
+# 导航栏/侧边栏配置
+
+<CH.Spotlight>
+
+```bash Directory
+.
+├─ docs
+# focus
+│  ├─ .island
+# focus
+│  │  └─ config.ts
+│  └─ index.md
+└─ package.json
+```
+
+---
+
+**Step 1**
+
+Add config file. File directory structure:
+
+```bash Directory
+.
+├─ docs
+│  ├─ .island
+# focus
+│  │  └─ config.ts
+│  └─ index.md
+└─ package.json
+```
+
+---
+
+**Step 2**
+
+Initialize config file:
+
+```ts config.ts
+import { defineConfig } from "islandjs";
+
+export default defineConfig({
+  // Specific config
+});
+```
+
+---
+
+**Step 3**
+
+Add nav bar config:
+
+```ts config.ts
+import { defineConfig } from "islandjs";
+
+export default defineConfig({
+  // focus(1:8)
+  themeConfig: {
+    nav: [
+      {
+        text: "Home",
+        link: "/",
+      },
+    ],
+  },
+});
+```
+
+---
+
+**Step 4**
+
+Add sidebar config:
+
+```ts config.ts
+import { defineConfig } from "islandjs";
+
+export default defineConfig({
+  themeConfig: {
+    nav: [
+      {
+        text: "Home",
+        link: "/",
+      },
+    ],
+    sidebar: {
+      "/guide/": [
+        {
+          text: "Guide",
+          items: [
+            {
+              text: "Getting Started",
+              link: "/guide/getting-started",
+            },
+          ],
+        },
+      ],
+    },
+  },
+});
+```
+
+---
+
+**Step 5**
+
+Start the local development service so Island.js will start the Dev Server at http://localhost:5173.
+
+```js terminal
+npm run dev
+```
+
+---
+
+</CH.Spotlight>
+
+> It should be noted that the file for the sidebar configuration does not yet exist, so there is currently no content for the sidebar, which we will create in the next section.
+
+Is it very simple? Next, we will officially write Markdown documents to enrich our documentation site.

@@ -1,0 +1,181 @@
+# Integrate I18n
+
+I18n is very important for a document-based site because it makes your site more adaptable to different locales and audiences. Next, we'll cover how to integrate i18n in your Island.js site.
+
+<CH.Spotlight>
+
+```ts config.ts
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+    },
+  },
+});
+```
+
+---
+
+**Step 1**
+
+Initialize the `locales` config:
+
+```ts config.ts focus=4:15
+
+```
+
+---
+
+**Step 2**
+
+Initialization util function:
+
+```ts config.ts
+import { defineConfig } from "vite";
+
+function getI18nHelper(lang: "zh" | "en") {
+  const cn = lang === "zh";
+  const prefix = cn ? "/zh" : "/en";
+  // Used to generate language prefixed links
+  const getLink = (str: string) => `${prefix}${str}`;
+  // Used to generate text in different languages
+  const getText = (cnText: string, enText: string) => (cn ? cnText : enText);
+  return { getText, getLink };
+}
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+    },
+  },
+});
+```
+
+---
+
+**Step 3**
+
+Add nav bar config:
+
+```ts config.ts focus=1:10
+function getNavbar(lang: "zh" | "en") {
+  const { getLink, getText } = getI18nHelper(lang);
+
+  return [
+    {
+      text: getText("主页", "Home"),
+      link: getLink("/"),
+    },
+  ];
+}
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+      // focus
+      navbar: getNavbar("en"),
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+      // focus
+      navbar: getNavbar("zh"),
+    },
+  },
+});
+```
+
+---
+
+**Step 4**
+
+Add sidebar config:
+
+```ts config.ts focus=1:17
+function getSidebar(lang: "zh" | "en") {
+  const { getLink, getText } = getI18nHelper(lang);
+
+  return {
+    [getLink("/guide/")]: [
+      {
+        text: getText("介绍", "Getting Started"),
+        items: [
+          {
+            text: getText("快速开始", "Getting Started"),
+            link: getLink("/guide/getting-started"),
+          },
+        ],
+      },
+    ],
+  };
+}
+
+export default defineConfig({
+  locales: {
+    "/en/": {
+      lang: "en-US",
+      title: "My Site",
+      description: "My site",
+      navbar: getNavbar("en"),
+      // focus
+      sidebar: getSidebar("en"),
+    },
+    "/zh/": {
+      lang: "zh-CN",
+      title: "我的站点",
+      description: "我的站点",
+      navbar: getNavbar("zh"),
+      // focus
+      sidebar: getSidebar("zh"),
+    },
+  },
+});
+```
+
+---
+
+**Step 5**
+
+Adjust the project directory structure:
+
+```bash focus=2:9
+docs
+├── en
+│   ├── guide
+│   │   └── getting-started.md
+│   └── index.md
+└── zh
+    ├── guide
+    │   └── getting-started.md
+    └── index.md
+```
+
+---
+
+</CH.Spotlight>
+
+When you start the project and access `/zh/`, you will find that the sidebar and nav bar have been automatically switched to Chinese. Similarly, when you access `/en/`, the sidebar and nav bar will be automatically switched to English.
+
+😄 Finally, you can write the corresponding language documentation in the adjusted directory.
+

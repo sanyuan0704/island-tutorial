@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "island dev docs",
-    "build": "island build docs",
+    "build": "island build docs && cp -r ./docs/.island/index.html ./docs/.island/dist",
     "start": "island start docs"
   },
   "keywords": [],

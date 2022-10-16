@@ -1,0 +1,116 @@
+# 编写 Markdown 内容
+
+After configuring the nav bar and sidebar, we can start writing markdown content.
+
+<CH.Spotlight>
+
+```bash Directory
+├── docs
+│   ├── index.md
+│   ├── guide
+│   │   └── getting-started.md
+```
+
+---
+
+**Step 1**
+
+Create two Markdown files named `index.md` and `getting-started.md`. The structure looks like this:
+
+```bash Directory
+├── docs
+# focus
+│   ├── index.md
+│   ├── guide
+# focus
+│   │   └── getting-started.md
+```
+
+---
+
+**Step2**
+
+Create the content of the Home page, the `index.md` file. Add the following to the `index.md` file:
+
+```md index.md
+---
+pageType: home
+
+hero:
+  name: My Awesome Site
+  text: My Site
+  tagline: This is my awesome site
+  image:
+    src: /logo.png
+    alt: logo
+  actions:
+    - theme: brand
+      text: Getting Started
+      link: /guide/getting-started
+    - theme: alt
+      text: GitHub
+      link: https://github.com/islandjs
+features:
+  - title: "Vite: The DX that can't be beat"
+    details: Instant server start and HMR regardless of project size.
+    icon: 🚀
+  - title: 'MDX: The flexible way to write content'
+    details: MDX is a powerful way to write content. You can use React components in Markdown.
+    icon: 📦
+  - title: 'Islands Arch: The higher performance in production'
+    details: Designed to be islands architecture, means less javascript bundle, partial hydration and better performance about FCP, TTI.
+    icon: ✨
+---
+```
+
+---
+
+**Step 3**
+
+Import the Logo image, create a `logo.png` (other image formats are also acceptable) file, and put this image in the `docs/public` directory:
+
+```bash Directory
+├── docs
+# focus(1,2)
+│   ├── public
+        └── logo.png
+```
+
+---
+
+**Step4**
+
+Write a `getting-started.md` file and add the following:
+
+```md getting-started.md
+# Getting Started
+
+## Install
+
+This is my first page.
+
+:::tip
+Island.js is built on top of Vite.
+:::
+```
+
+---
+
+**Step5**
+
+Now, you can start the development server to preview the effect. Run the following commands in a terminal:
+
+```bash
+# Start command
+npm run dev
+
+# Preview Url
+http://localhost:5173
+http://localhost:5173/guide/getting-started
+```
+
+</CH.Spotlight>
+
+<div class="my-10"></div>
+
+At this point, a simple Island.js site is built. You can continue to add more pages and content according to your needs. Next, let's take a look at how to build the project in the production environment through Island.js.

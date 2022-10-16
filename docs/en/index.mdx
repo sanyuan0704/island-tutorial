@@ -1,0 +1,82 @@
+# Initialize
+
+This tutorial shows how to create, develop, build and deploy a complete project using Island.js.
+
+<CH.Spotlight>
+
+```bash terminal
+mkdir island-app && cd island-app
+```
+
+---
+
+**Step 1**
+
+First, you can create a new directory with the following command:
+
+```bash terminal focus(1)
+
+```
+
+---
+
+**Step 2**
+
+Execute `npm init -y` to initialize a project. You can install Island.js using `npm`, `yarn` or `pnpm`:
+
+```bash terminal
+# npm
+npm install islandjs
+# yarn
+yarn add islandjs
+# pnpm
+pnpm add islandjs
+```
+
+---
+
+**Step 3**
+
+Then create the file with the following command:
+
+```js terminal
+mkdir docs && echo '# Hello World' > docs/index.md
+```
+
+---
+
+**Step 4**
+
+Add the following scripts to `package.json`, you can paste it directly:
+
+<CH.Code>
+
+```js terminal
+mkdir docs && echo '# Hello World' > docs/index.md
+```
+
+---
+
+```json package.json
+"scripts": {
+  "dev": "island dev docs",
+  "build": "island build docs",
+  "preview": "island start docs"
+},
+```
+
+</CH.Code>
+
+---
+
+**Step 5**
+
+Start the local development service so Island.js will start the Dev Server at http://localhost:5173.
+
+```js terminal
+npm run dev
+```
+
+---
+
+</CH.Spotlight>
