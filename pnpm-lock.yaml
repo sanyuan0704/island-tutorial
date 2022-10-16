@@ -5,13 +5,13 @@ specifiers:
   '@types/node': ^18.8.3
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
-  islandjs: '0.4'
+  islandjs: 0.4.1
   shiki: ^0.11.1
   typescript: ^4.8.4
 
 dependencies:
   '@code-hike/mdx': 0.7.4
-  islandjs: 0.4.0
+  islandjs: 0.4.1
   shiki: 0.11.1
 
 devDependencies:
@@ -2187,8 +2187,8 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: false
 
-  /islandjs/0.4.0:
-    resolution: {integrity: sha512-DqUfuCWbU8IZpEqAVcQjOwgUs3iMrIP1/HHlSVTosg66Zm1bvI03hiTydtAW84Wggk8Xv6Jr8ar9ClkEACMlXQ==}
+  /islandjs/0.4.1:
+    resolution: {integrity: sha512-FnjDr0B6uFp/eJxqsrpc6LS+67VYr5KxBr5d/vIDPHdU1AWNthdxk27Q6vmrPctrOha/zCtCZ9kL+ac4sOFf9g==}
     hasBin: true
     dependencies:
       '@babel/core': 7.19.3
