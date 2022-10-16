@@ -21,7 +21,7 @@ export default defineConfig({
   },
   title: "Island.js 教程",
   themeConfig: {
-    outline: false,
+    // outline: false,
     locales: {
       "/": {
         nav: getNavbar("zh"),

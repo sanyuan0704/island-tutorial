@@ -2,21 +2,25 @@
 
 现在让我们从零创建一个新的项目。
 
-<div my="20"></div>
-
-<CH.Scrollycoding>
-
-## Step 1
-
-首先，你可以通过以下命令创建一个新目录：
+<CH.Spotlight>
 
 ```bash terminal
-$ mkdir island-app && cd island-app
+mkdir island-app && cd island-app
 ```
 
 ---
 
-## Step 2
+**Step 1**
+
+首先，你可以通过以下命令创建一个新目录：
+
+```bash terminal focus(1)
+
+```
+
+---
+
+**Step 2**
 
 执行 `npm init -y` 来初始化一个项目。你可以使用 npm、yarn 或 pnpm 安装 Island.js:
 
@@ -31,7 +35,7 @@ pnpm add islandjs
 
 ---
 
-## Step 3
+**Step 3**
 
 然后通过如下命令创建文件:
 
@@ -41,32 +45,38 @@ mkdir docs && echo '# Hello World' > docs/index.md
 
 ---
 
-## Step 4
+**Step 4**
 
-在`package.json`中加上如下的脚本:
+在`package.json`中加上如下的脚本，你直接粘贴过去:
 
-```json package.json
-{
-  "scripts": {
-    "dev": "island dev docs",
-    "build": "island build docs",
-    "preview": "island start docs"
-  }
-}
+<CH.Code>
+
+```js terminal
+mkdir docs && echo '# Hello World' > docs/index.md
 ```
 
 ---
 
-## Step 5
+```json package.json
+"scripts": {
+  "dev": "island dev docs",
+  "build": "island build docs",
+  "preview": "island start docs"
+},
+```
+
+</CH.Code>
+
+---
+
+**Step 5**
 
 启动本地开发服务，这样 Island.js 将在 http://localhost:5173 启动 Dev Server。
 
 ```js terminal
-yarn dev
+npm run dev
 ```
 
 ---
 
-</CH.Scrollycoding>
-
-<div my="30"></div>
+</CH.Spotlight>

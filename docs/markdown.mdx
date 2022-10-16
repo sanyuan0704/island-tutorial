@@ -1,3 +1,115 @@
 # 编写 Markdown 内容
 
-🚧 敬请期待
+在配置好导航栏和侧边栏后，我们可以开始编写 Markdown 内容了。
+
+<CH.Spotlight>
+
+```bash 目录结构
+├── docs
+│   ├── index.md
+│   ├── guide
+│   │   └── getting-started.md
+```
+
+---
+
+**Step 1**
+
+创建两个 Markdown 文件，分别命名为 `index.md` 和 `getting-started.md`。结构如下所示:
+
+```bash 目录结构
+├── docs
+# focus
+│   ├── index.md
+│   ├── guide
+# focus
+│   │   └── getting-started.md
+```
+
+---
+
+**Step2**
+
+创建 Home 页面的内容，即 `index.md` 文件。在 `index.md` 文件中添加以下内容:
+
+```md index.md
+---
+pageType: home
+
+hero:
+  name: My Awesome Site
+  text: 我的站点
+  tagline: 这是一段简单的描述
+  image:
+    src: /logo.png
+    alt: logo
+  actions:
+    - theme: brand
+      text: Getting Started
+      link: /guide/getting-started
+    - theme: alt
+      text: GitHub
+      link: https://github.com/islandjs
+features:
+  - title: "Vite: 极速的开发响应速度"
+    details: 基于 Vite 构建，开发时的响应速度极快，即时的热更新，带给你极致的开发体验。
+    icon: 🚀
+  - title: "MDX: Markdown & React 组件来写内容"
+    details: MDX 是一种强大的方式来写内容。你可以在 Markdown 中使用 React 组件。
+    icon: 📦
+  - title: "孤岛架构: 更高的生产性能"
+    details: 采用 Islands 架构，意味着更少的 JavaScript 代码、局部 hydration， 从而带来更好的首屏性能。
+---
+```
+
+---
+
+**Step 3**
+
+引入 Logo 图片，创建 `logo.png`(其他图片格式也可以)文件，将此图片放入 `docs/public` 目录下:
+
+```bash 目录结构
+├── docs
+# focus(1,2)
+│   ├── public
+        └── logo.png
+```
+
+---
+
+**Step4**
+
+编写 `getting-started.md` 文件，添加以下内容:
+
+```md getting-started.md
+# Getting Started
+
+## Install
+
+This is my first page.
+
+:::tip
+Island.js is built on top of Vite.
+:::
+```
+
+---
+
+**Step5**
+
+现在，你可以启动开发服务器预览效果了。在终端中运行以下命令:
+
+```bash
+# 启动命令
+npm run dev
+
+# 预览地址
+http://localhost:5173
+http://localhost:5173/guide/getting-started
+```
+
+</CH.Spotlight>
+
+<div class="my-10"></div>
+
+致此，一个简单的 Island.js 站点就搭建完成了。你可以根据自己的需求，继续添加更多的页面和内容。接下来我们来看看如何通过 Island.js 对项目进行**生产环境的构建打包**。
