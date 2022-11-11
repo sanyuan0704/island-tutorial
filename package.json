@@ -13,8 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@code-hike/mdx": "^0.7.4",
-    "islandjs": "0.7.3",
+    "@code-hike/mdx": "0.7.4",
+    "islandjs": "0.7.5",
     "shiki": "^0.11.1"
   },
   "devDependencies": {
