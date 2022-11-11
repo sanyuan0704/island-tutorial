@@ -57,7 +57,7 @@ function getNavbar(lang: "zh" | "en") {
   return [
     {
       text: getText("指南", "Guide"),
-      link: `https://island.sanyuan0704.top/${lang}/guide/getting-started`,
+      link: `https://islandjs.dev/${lang}/guide/getting-started`,
     },
     {
       text: getText("教程", "Tutorial"),
@@ -65,7 +65,7 @@ function getNavbar(lang: "zh" | "en") {
     },
     {
       text: getText("API", "API"),
-      link: `https://island.sanyuan0704.top/${lang}/api/`,
+      link: `https://islandjs.dev/${lang}/api/`,
     },
     {
       text: `v${version}`,
