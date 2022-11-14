@@ -8,6 +8,28 @@ Note: The interactive documentation for this tutorial is based on Island.js and 
 
 In Island.js, you can easily access `Code Hike` for interactive documentation.
 
+:::warning
+If you use pnpm to install dependencies, you should add `.pnpmfile.cjs` in your project root first:
+
+```js
+function readPackage(pkg, context) {
+  if (pkg.name === "hast-util-from-html" && pkg.version.startsWith("1.")) {
+    pkg.dependencies = {
+      ...pkg.dependencies,
+      "vfile-message": "^3.1.2",
+    };
+  }
+  return pkg;
+}
+
+module.exports = {
+  hooks: {
+    readPackage,
+  },
+};
+```
+:::
+
 <CH.Spotlight>
 
 ```bash

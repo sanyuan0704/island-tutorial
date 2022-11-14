@@ -8,6 +8,28 @@
 
 而在 Island.js 中，你也可以非常轻易地接入 `Code Hike`，实现交互式文档。
 
+:::warning
+如果你使用 pnpm 安装依赖，请先在项目根目录新建 .pnpmfile.cjs，内容如下:
+
+```js filename=".pnpmfile.cjs"
+function readPackage(pkg, context) {
+  if (pkg.name === "hast-util-from-html" && pkg.version.startsWith("1.")) {
+    pkg.dependencies = {
+      ...pkg.dependencies,
+      "vfile-message": "^3.1.2",
+    };
+  }
+  return pkg;
+}
+
+module.exports = {
+  hooks: {
+    readPackage,
+  },
+};
+```
+:::
+
 <CH.Spotlight>
 
 ```bash
