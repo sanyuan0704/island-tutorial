@@ -15,11 +15,13 @@ function getI18nHelper(lang: "zh" | "en") {
 }
 
 export default defineConfig({
+  enableSpa: true,
   markdown: {
     remarkPlugins: [
       [remarkCodeHike, { theme, autoImport: true, showCopyButton: true }],
     ],
   },
+  // base: '/tutorial/',
   title: "Island.js 教程",
   themeConfig: {
     locales: {
@@ -45,7 +47,6 @@ export default defineConfig({
       },
     ],
   },
-  enableSpa: true,
   route: {
     exclude: ["compoents/**/*"],
   },

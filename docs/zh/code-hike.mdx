@@ -61,6 +61,7 @@ const require = createRequire(import.meta.url);
 const theme = require("shiki/themes/nord.json");
 
 export default defineConfig({
+  enableSpa: true,
   markdown: {
     remarkPlugins: [
       [
