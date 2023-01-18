@@ -5,13 +5,13 @@ specifiers:
   '@types/node': ^18.8.3
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
-  islandjs: 0.7.25
+  islandjs: 0.7.27
   shiki: ^0.11.1
   typescript: ^4.8.4
 
 dependencies:
   '@code-hike/mdx': 0.7.4
-  islandjs: 0.7.25
+  islandjs: 0.7.27
   shiki: 0.11.1
 
 devDependencies:
@@ -485,23 +485,23 @@ packages:
       - supports-color
     dev: false
 
-  /@islandjs/plugin-backtop/0.7.25_islandjs@0.7.25:
-    resolution: {integrity: sha512-EC1TyiF9CUwPRzsia+MYGbjCNsOZTGJRBPQ6VWVBLFLDrgt9VzW/iQ7cUpNsTEsUk4lQreS+/gFHVN1un4b+dw==}
+  /@islandjs/plugin-backtop/0.7.27_islandjs@0.7.27:
+    resolution: {integrity: sha512-+xgiNUN2SiepV8lkksV2vnWV2olysf2XNO0bABm9/rDBXo7JtLKv0G0OQlHPzyQLeaT0E8hazez91IF3sTbcZw==}
     peerDependencies:
-      islandjs: 0.7.25
+      islandjs: 0.7.27
     dependencies:
       b-tween: 0.3.3
-      islandjs: 0.7.25
+      islandjs: 0.7.27
       lodash-es: 4.17.21
     dev: false
 
-  /@islandjs/plugin-search/0.7.25_islandjs@0.7.25:
-    resolution: {integrity: sha512-+4I51yolsDjvmg/2mETcN++bMwAVaHYToJepsJ542r3AYZg4KXkN9vSBM1n91S5rlzMmPd1JmiNzw1aBddNs3A==}
+  /@islandjs/plugin-search/0.7.27_islandjs@0.7.27:
+    resolution: {integrity: sha512-jzh9BoBYslN9dBFDT05qm9S7Hfa/tuAobqQfUwBDRq2O5qmehIdCOOgX9xSHSHBSICA49WiwSfor4hmeU8XJDg==}
     peerDependencies:
-      islandjs: 0.7.25
+      islandjs: 0.7.27
     dependencies:
       flexsearch: 0.6.32
-      islandjs: 0.7.25
+      islandjs: 0.7.27
       lodash-es: 4.17.21
     dev: false
 
@@ -2334,16 +2334,16 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: false
 
-  /islandjs/0.7.25:
-    resolution: {integrity: sha512-6HmvqOsBtyO3xgW9OQjLG+yxyYpTteX+co/DUANQw0y3MpPWuc1foAWpKV8XJJtG32CtRghy0qVLfQzyeHIYqw==}
+  /islandjs/0.7.27:
+    resolution: {integrity: sha512-uzCRy65XOfR+//zIY3UA0Kq/xPyUAwqOsF0VTie71DQTIhlIT2O3flthEw95SfsMt24vllRoL9fwcGuctvXoUA==}
     hasBin: true
     dependencies:
       '@babel/core': 7.19.0
       '@babel/helper-plugin-utils': 7.19.0
       '@babel/preset-react': 7.18.6_@babel+core@7.19.0
       '@iconify-json/carbon': 1.1.8
-      '@islandjs/plugin-backtop': 0.7.25_islandjs@0.7.25
-      '@islandjs/plugin-search': 0.7.25_islandjs@0.7.25
+      '@islandjs/plugin-backtop': 0.7.27_islandjs@0.7.27
+      '@islandjs/plugin-search': 0.7.27_islandjs@0.7.27
       '@mdx-js/mdx': 2.1.3
       '@mdx-js/react': 2.1.3_react@18.2.0
       '@mdx-js/rollup': 2.1.4
@@ -2370,6 +2370,7 @@ packages:
       lodash-es: 4.17.21
       mdast-util-mdxjs-esm: 1.3.0
       medium-zoom: 1.0.6
+      nprogress: 0.2.0
       ora: 6.1.2
       picocolors: 1.0.0
       polka: 0.5.2
@@ -3184,6 +3185,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-key: 3.1.1
+    dev: false
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
     dev: false
 
   /object-assign/4.1.1:

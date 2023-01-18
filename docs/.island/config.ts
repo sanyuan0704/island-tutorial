@@ -58,7 +58,7 @@ function getNavbar(lang: "zh" | "en") {
   return [
     {
       text: getText("指南", "Guide"),
-      link: `https://islandjs.dev/${lang}/guide/getting-started.html`,
+      link: `https://islandjs.dev/${lang}/guide/getting-started`,
     },
     {
       text: getText("教程", "Tutorial"),

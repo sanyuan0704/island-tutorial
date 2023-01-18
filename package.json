@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@code-hike/mdx": "0.7.4",
-    "islandjs": "0.7.25",
+    "islandjs": "0.7.27",
     "shiki": "^0.11.1"
   },
   "devDependencies": {
